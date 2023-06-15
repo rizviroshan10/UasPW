@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('jadwal_trainer', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('jadwal_id');
+            $table->unsignedBigInteger('trainer_id');
+            $table->foreign('trainer_id')->references('id')->on('trainer');
+            $table->foreign('jadwal_id')->references('id')->on('jadwal');
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('jadwal_trainer');
     }
 };

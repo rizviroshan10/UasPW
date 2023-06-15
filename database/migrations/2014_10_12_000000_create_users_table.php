@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('tinggi_badan');
+            $table->string('berat_badan');
+            $table->string('alamat');
+            $table->string('no_hp');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('admin');
             $table->rememberToken();
             $table->timestamps();
         });
