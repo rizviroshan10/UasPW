@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Tambah Mahasiswa')
+@section('title', 'Tambah Trainer')
 @section('content')
 <div class="row">
           <div class="col-md-12 grid-margin stretch-card">
@@ -13,7 +13,7 @@
                     @csrf
                     <div class="row">
                         <div class="form-group col-lg-6">
-                        <label for="npm">Nama </label>
+                        <label for="nama">Nama </label>
                         <input type="text" class="form-control" name="nama" placeholder="Nama">
                         @error('nama')
                                 <span class="text-danger">{{ $message }}</span>

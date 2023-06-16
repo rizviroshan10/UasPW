@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Tambah Mahasiswa')
+@section('title', 'Tambah Trainer')
 @section('content')
 <div class="row">
           <div class="col-md-12 grid-margin stretch-card">
