@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->timestamps();
         });
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('trainer_id')->references('id')->on('trainer');
+        });
     }
 
     /**

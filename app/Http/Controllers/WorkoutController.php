@@ -8,6 +8,6 @@ class WorkoutController extends Controller
 {
    
     function index()  {
-        return view('gym.index');
+        return view('trainer.index');
     }
 }

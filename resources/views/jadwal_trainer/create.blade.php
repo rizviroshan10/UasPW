@@ -9,20 +9,27 @@
                   <p class="card-description">
                    Isi Jadwal Trainer
                   </p>
-                  <form class="forms-sample" action="{{ route('jadwal.update', $jadwal->id) }}" method="post" enctype="multipart/form-data">
+                  <form class="forms-sample" action="{{ route('jadwal_trainer.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
                     <div class="row">
                     <div class="form-group col-lg-6">
-                        <label for="hari">Hari</label>
-                        <input  value="{{$jadwal->hari}}" type="text" class="form-control" name="hari" placeholder="Hari">
+                        <label for="jadwal_id">Jadwal</label>
+                        <input  type="text" class="form-control" name="jadwal_id" placeholder="jadwal">
+                        @error('hari')
+                                <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="trainer_id">Hari</label>
+                        <input  type="text" class="form-control" name="trainer_id" placeholder="trainer">
                         @error('hari')
                                 <span class="text-danger">{{ $message }}</span>
                         @enderror
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Simpan</button>
-                    <a href="{{ route('jadwal.index') }}" class="btn btn-light">Batal</a>
+                    <a href="{{ route('jadwal_trainer.index') }}" class="btn btn-light">Batal</a>
                   </form>
                 </div>
               </div>

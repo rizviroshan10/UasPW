@@ -20,17 +20,13 @@
                             <thead>
                                 <tr>
                                     <th>Hari </th
-                                    <th>Jam </th
-                                    <th>Pertemuan</th
-                                    <th>#</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($jadwal as $item)
                                     <tr>
                                         <td> {{ $item->hari}} </td>
-                                        <td> {{ $item->jam}} </td>
-                                        <td> {{ $item->pertemuan}} </td>
                                         <td> {{ $item->created_at }} </td>
                                         <td>
                                             <div class="d-flex justify-content-between">
@@ -74,7 +70,7 @@
                 var button = $(this);
                 Swal.fire({
                     icon: 'warning',
-                    title: "<h1 style='color:black;' >Are you sure you want to delete this record?</h1>",
+                    title: "<h1 style='color:black;' >Apa Kamu Yakin Untuk Menghapus Data Ini?</h1>",
                     showDenyButton: false,
                     showCancelButton: true,
                     confirmButtonText: 'Yes',
@@ -93,7 +89,7 @@
                             success: function(response, textStatus, xhr) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: response,
+                                    title: "<h1 style='color:black;' >Data Berhasil Di Hapus</h1>",
                                     showDenyButton: false,
                                     showCancelButton: false,
                                     confirmButtonText: 'Yes'

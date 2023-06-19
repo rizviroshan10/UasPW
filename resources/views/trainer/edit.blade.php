@@ -30,7 +30,7 @@
                     </div>
                    <div class="form-group col-lg-6">
                             <label for="foto">Foto</label>
-                            <input  value="{{$trainer->foto}}" type="text" class="form-control" name="foto" placeholder="">
+                            <input  value="{{$trainer->foto}}" type="file" class="form-control" name="foto" placeholder="">
                             @error('foto')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

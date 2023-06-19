@@ -4,6 +4,8 @@ use App\Http\Controllers\GymController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\JadwalTrainerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +34,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::resource('workout', WorkoutController::class);
+
+Route::resource('jadwal',JadwalController::class);
 Route::resource('trainer', TrainerController::class);
-Route::resource('gym', GymController::class);
+Route::resource('jadwal_trainer', JadwalTrainerController::class);
 
 require __DIR__.'/auth.php';

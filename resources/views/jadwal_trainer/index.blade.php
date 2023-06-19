@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title', 'Halaman Trainer')
-@section('subtitle', 'Trainer')
+@section('title', 'Halaman Jadwal Trainer')
+@section('subtitle', 'Jadwal')
 @section('content')
 
     <div class="row">
@@ -13,35 +13,28 @@
                             {{ Session::get('success') }}
                         </div>
                     @endif
-                    <h4 class="card-title">Trainer</h4>
-                    <a href="{{ route('trainer.create') }}" class="btn btn-primary">Tambah</a>
+                    <h4 class="card-title">Jadwal Trainer</h4>
+                    <a href="{{ route('jadwal_trainer.create') }}" class="btn btn-primary">Tambah</a>
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Nama </th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Foto</th>
-                                    <th>Created At</th>
+                                    <th>Jadwal </th
+                                    <th>Trainer </th
                                     <th>#</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($trainer as $item)
+                                @foreach ($jadwal as $item)
                                     <tr>
-                                        <td> {{ $item->nama }} </td>
-                                        <td> {{ $item->tanggal_lahir }} </td>
-                                        <td> {{ $item->jenis_kelamin }} </td>
-                                        <td> <img src="{{ asset('storage/' . $item->foto) }}">
-                                        </td>
-                                        <td> {{ $item->created_at }} </td>
+                                        <td> {{ $item->jadwal->hari}} </td>
+                                        <td> {{ $item->trainer->nama}} </td>
                                         <td>
                                             <div class="d-flex justify-content-between">
-                                                <a href="{{ route('trainer.edit', $item->id) }}"><button
+                                                <a href="{{ route('jadwal_trainer.edit', $item->id) }}"><button
                                                         class="btn btn-success btn-sm mr-2">Edit</a>
                                                 <form method="post" class="delete-form"
-                                                    data-route="{{ route('trainer.destroy', $item->id) }}">
+                                                    data-route="{{ route('jadwal_trainer.destroy', $item->id) }}">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -31,7 +31,6 @@ class TrainerController extends Controller
             'jenis_kelamin' => 'required',
         ]);
 
-        $trainer = new Trainer();
         $trainer->nama = $validasi['nama'];
         $trainer->tanggal_lahir = $validasi['tanggal_lahir'];
         $trainer->jenis_kelamin = $validasi['jenis_kelamin'];

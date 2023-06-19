@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gym;
+use App\Models\JadwalTrainer;
 use Illuminate\Http\Request;
 
-class GymController extends Controller
+class JadwalTrainerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Gym::all();
-        return view('gym.index')->with('gym',$data);
+        $jadwal = JadwalTrainer::all();
+        return view ('jadwal_trainer.index')->with('jadwal', $jadwal);
     }
 
     /**
@@ -21,7 +21,7 @@ class GymController extends Controller
      */
     public function create()
     {
-        return View('gym.create');
+        //
     }
 
     /**

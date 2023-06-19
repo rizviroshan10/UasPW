@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
+
 
 class JadwalController extends Controller
 {
@@ -22,21 +24,15 @@ class JadwalController extends Controller
         $jadwal = Jadwal::find($id);
         return view('jadwal.edit')->with('jadwal', $jadwal);
     }
-    public function update(Request $request, Jadwal $jadwal)
+    public function update(Request $request, String $id)
     {
         $validasi = $request->validate([
             'hari' => 'required',
-            'jam' => 'string',
-            'pertemuan' => 'required',
         ]);
-
-        $jadwal = new Jadwal();
-        $jadwal->hari = $validasi['hari'];
-        $jadwal->jam = $validasi['jam'];
-        $jadwal->pertemuan = $validasi['pertemuan'];
-
-
-        return redirect()->route('jadwal.index')->with('success', "Data jadwal " . $validasi['nama'] . " berhasil diubah");
+        $jadwal = Jadwal::find($id);
+        $jadwal->hari = $request->hari;
+        $jadwal->save();
+        return redirect()->route('jadwal.index')->with('success', "Data jadwal " . $validasi['hari'] . " berhasil diubah");
     }
 
 
@@ -44,17 +40,14 @@ class JadwalController extends Controller
     {
         $validasi = $request->validate([
             'hari' => 'required',
-            'jam' => 'string',
-            'pertemuan' => 'required',
         ]);
 
         $jadwal = new Jadwal();
         $jadwal->hari = $validasi['hari'];
-        $jadwal->jam = $validasi['jam'];
-        $jadwal->pertemuan = $validasi['pertemuan'];
+        $jadwal->save();
 
 
-        return redirect()->route('jadwal.index')->with('success', "Data jadwal " . $validasi['nama'] . " berhasil disimpan");
+        return redirect()->route('jadwal.index')->with('success', "Data jadwal " . $validasi['hari'] . " berhasil disimpan");
     }
     public function destroy(String $id)
     {

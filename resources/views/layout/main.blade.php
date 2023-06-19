@@ -110,15 +110,15 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ asset('pages/forms/basic_elements.html') }}">
+                    <a class="nav-link" href="/jadwal_trainer">
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Member</span>
+                        <span class="menu-title">Jadwal Trainer</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ asset('pages/tables/basic-table.html') }}">
+                    <a class="nav-link" href="/jadwal">
                         <span class="menu-icon">
                             <i class="mdi mdi-table-large"></i>
                         </span>
