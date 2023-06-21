@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('jadwal_id');
             $table->unsignedBigInteger('trainer_id');
-            $table->foreign('trainer_id')->references('id')->on('trainer');
-            $table->foreign('jadwal_id')->references('id')->on('jadwal');
+            $table->foreign('trainer_id')->references('id')->on('trainer')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('jadwal_id')->references('id')->on('jadwal')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

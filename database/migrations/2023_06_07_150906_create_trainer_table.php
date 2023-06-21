@@ -20,7 +20,8 @@ return new class extends Migration
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('trainer_id')->references('id')->on('trainer');
+            $table->foreign('trainer_id')->references('id')->on('trainer')
+            ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

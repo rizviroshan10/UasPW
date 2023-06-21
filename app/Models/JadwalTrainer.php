@@ -11,10 +11,10 @@ class JadwalTrainer extends Model
     protected $table = 'jadwal_trainer';
 
     public function trainer() {
-        return $this->hasOne(Trainer::class);
+        return $this->hasOne(Trainer::class, 'id', 'trainer_id');
     }
 
     public function jadwal() {
-        return $this->hasOne(Jadwal::class);
+        return $this->hasOne(Jadwal::class, 'id', 'jadwal_id');
     }
 }

@@ -1,27 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class TrainerController extends Controller
+class TrainerController extends BaseController
 {
-    
     public function index()
     {
         $trainer = Trainer::all();
-        return view ('trainer.index')->with('trainer', $trainer);
+        return $this->sendSuccess($trainer, 'Data Trainer');
     }
 
-    public function create(){
-        return view('trainer.create');
-    }
-    public function edit(String $id)
-    {
-        $trainer = Trainer::find($id);
-        return view('trainer.edit')->with('trainer', $trainer);
-    }
     public function update(Request $request, Trainer $trainer)
     {
         $validasi = $request->validate([
@@ -44,8 +36,8 @@ class TrainerController extends Controller
 
         $trainer->save(); // simpan
 
-        return redirect()->route('trainer.index')->with('success', "Data trainer " . $validasi['nama'] . " berhasil diubah");
-    }
+        return $this->sendSuccess(null, 'Berhasil update data Trainer');
+      }
 
 
     public function store(Request $request)
@@ -53,7 +45,7 @@ class TrainerController extends Controller
         $validasi = $request->validate([
             'nama' => 'required',
             'tanggal_lahir' => 'required',
-            'foto' => 'required',
+            'foto' => 'file|image',
             'jenis_kelamin' => 'required',
         ]);
 
@@ -71,15 +63,14 @@ class TrainerController extends Controller
 
         $trainer->save(); // simpan
 
-        return redirect()->route('trainer.index')->with('success', "Data trainer " . $validasi['nama'] . " berhasil disimpan");
+        return $this->sendSuccess(null, 'Berhasil simpan data Trainer');
+
     }
     public function destroy(String $id)
     {
         $trainer = Trainer::find($id);
         // dd($trainer);
         $trainer->delete();
-        //return redirect()->route('trainer.index')->with('success', 'Data berhasil dihapus');
-        return response("Selected trainer (s) deleted successfully.", 200);
+        return $this->sendSuccess(null, 'Berhasil hapus data Trainer');
     }
 }
-

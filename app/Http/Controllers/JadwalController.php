@@ -46,7 +46,6 @@ class JadwalController extends Controller
         $jadwal->hari = $validasi['hari'];
         $jadwal->save();
 
-
         return redirect()->route('jadwal.index')->with('success', "Data jadwal " . $validasi['hari'] . " berhasil disimpan");
     }
     public function destroy(String $id)
