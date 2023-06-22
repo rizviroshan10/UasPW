@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
 
@@ -66,11 +67,15 @@ class TrainerController extends BaseController
         return $this->sendSuccess(null, 'Berhasil simpan data Trainer');
 
     }
-    public function destroy(String $id)
+    public function delete($id)
     {
-        $trainer = Trainer::find($id);
+        $trainer = Trainer::findOrFail($id);
         // dd($trainer);
-        $trainer->delete();
-        return $this->sendSuccess(null, 'Berhasil hapus data Trainer');
+        if ($trainer->delete()) {
+            $success['data'] = [];
+        return $this->sendSuccess($success, 'Berhasil hapus data Trainer');
+    } else {
+        return $this->sendError('Error', ['error' => 'Data Trainer gagal dihapus']);
+    }
     }
 }
